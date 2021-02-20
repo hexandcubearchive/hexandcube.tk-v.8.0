@@ -1,0 +1,12 @@
+<table>
+    <tbody>
+        {{ range .Site.Data.profiles}}
+        <tr>
+            <td>
+                {{ .name }}
+            </td>
+            <td><a href="{{ .url }}" rel="me" class="is-family-monospace">{{ .username }}</a></td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>

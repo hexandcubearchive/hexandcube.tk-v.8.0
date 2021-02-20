@@ -1,0 +1,18 @@
+{{ range.Site.Data.files }}
+<div class="has-background-light has-rounded-corners m-2 p-5 columns">
+    <div class="column">
+        <div class="has-text-weight-bold is-size-4"><i class="{{ .icon }} pr-1"></i> {{ .name }}</div>
+        <div class="is-family-monospace has-text-grey">{{ .fileName }} ({{ .fileSize }})</div>
+        <div class="is-family-monospace has-text-grey">{{ .fileType }} ({{ .fileExtension }})</div>
+    </div>
+    <div class="column has-text-centered is-3">
+        <a href="{{ .url }}" class="button-primary is-block"><i class="fas fa-download mr-2"></i>Download</a>
+        {{ if .links }}
+            {{ range .links }}
+                <a href="{{ .url }}" class="button-outline my-2 is-block"><i class="{{ .icon }} mr-2"></i>{{ .name }}</a>
+            {{ end }}
+        {{ end }}
+    </div>
+</div>
+
+{{ end }}

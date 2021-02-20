@@ -1,0 +1,27 @@
+{
+    "1": {
+        "name": "Dark Scrollbars for Youtube v.1.1",
+        "fileName": "dark_scrollbar_for_youtube.xpi",
+        "fileSize": "12KB",
+        "fileType": "Firefox Addon",
+        "fileExtension": "xpi",
+        "icon": "far fa-file-archive",
+        "url": "https://files.hexandcube.tk/download/dark_scrollbar_for_youtube.xpi",
+        "links": {
+            "1": {
+                "name": "Mozilla AMO",
+                "url": "https://addons.mozilla.org/en-GB/firefox/addon/dark-scrollbar-for-youtube/",
+                "icon": "fab fa-firefox"
+            }
+        }
+    },
+    "2": {
+        "name": "Gpedit Installer for Windows 10 Home",
+        "fileName": "gpedit-installer.bat",
+        "fileSize": "1.48KB",
+        "fileType": "Windows Batch File",
+        "fileExtension": "bat",
+        "icon": "fas fa-file-code",
+        "url": "https://files.hexandcube.tk/download/gpedit-installer.bat"
+    }
+} 

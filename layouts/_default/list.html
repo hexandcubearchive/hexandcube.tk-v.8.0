@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+
+<div class="has-animation-slideup page-content container">
+    {{if .Params.hidetitle}}
+    {{ else }}
+    <h1>{{ .Title }}</h1>
+    {{ end }}
+
+    {{ .Content }}
+    {{ $paginator := .Paginate .Data.Pages }}
+    {{ range $paginator.Pages }}
+    <a href="{{ .Permalink }}" class="my-5 is-inline-block">
+        <div class="has-text-primary is-family-monospace has-text-weight-bold">
+            {{ if .Date }}{{ .Date.Format "January 02, 2006" }}{{ end }}</div>
+        <span class="title is-2">{{ .Title }}</span>
+    </a>
+    {{ end }}
+
+</div>
+{{ end }}

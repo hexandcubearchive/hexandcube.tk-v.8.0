@@ -1,0 +1,41 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ with .Title }}{{ . }} :: {{ end }}{{ $.Site.Title }}</title>
+
+{{ $styles := resources.Get "scss/main.scss" | resources.ToCSS }}
+
+{{- if .Site.IsServer }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+{{ else }}
+{{- $processedStyles := $styles | minify | fingerprint | resources.PostProcess -}}
+<link rel="stylesheet" href="{{ $processedStyles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" defer>
+{{ end -}}
+    
+<meta name="description"
+    content="{{ with .Page.Summary }}{{ . | plainify  }}{{ else }}{{ .Site.Params.SiteDescription }}{{ end }}">
+{{ if .Site.Params.OpenGraph }}
+<meta property="og:title" content="{{ .Site.Title }}" />
+<meta property="og:type" content="{{ .Site.Params.ogType }}" />
+<meta property="og:url" content="{{ .Site.BaseURL }}" />
+<meta property="og:image"
+    content="{{ with .Page.Params.CustomOgImage }}{{ . }}{{ else }}{{ .Site.Params.ogImageEndpoint }}{{ with .Title }}**{{ . | replaceRE " " "    %20"}}**{{ end }}{{ with .Page.Params.ogImageDescription }}<br>{{ . | replaceRE " " "%20" }}{{ end }}?{{ with .Site.Params.OgImageMarkdown }}md={{ . }}{{ end }}{{ end }}" />
+<meta property="og:site_name" content="{{ .Site.Params.SiteName }}" />
+<meta property="og:description"
+    content="{{ with .Page.Summary }}{{ . | plainify  }}{{ else }}{{ .Site.Params.SiteDescription }}{{ end }}" />
+{{ end }}
+{{ if .Site.Params.TwitterCards }}
+<meta name="twitter:card" content="{{ .Site.Params.TwitterCardType }}" />
+<meta name="twitter:site" content="{{ .Site.Params.TwitterSiteHandle }}" />
+<meta name="twitter:creator" content="{{ .Site.Params.TwitterCreatorHandle}}" />
+{{ end }}
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2021">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png?v=2021">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png?v=2021">
+<link rel="manifest" href="/manifest.json?v=2021">
+<link rel="mask-icon" href="/icons/safari-pinned-tab.svg?v=2021" color="#ff585d">
+<link rel="shortcut icon" href="/icons/favicon.ico?v=2021">
+<meta name="apple-mobile-web-app-title" content="Hexandcube.tk">
+<meta name="application-name" content="Hexandcube.tk">
+<meta name="msapplication-TileColor" content="#ff585d">
+<meta name="msapplication-config" content="/icons/browserconfig.xml?v=2021">
+<meta name="theme-color" content="#ff585d">

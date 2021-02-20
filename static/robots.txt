@@ -1,0 +1,12 @@
+Sitemap: https://hexandcube.tk/sitemap.xml
+
+User-agent: *
+Disallow: /pages/verify/
+Disallow: /offline/
+Disallow: /404/
+Disallow: /assets/
+Disallow: /media/
+Disallow: /scss/
+
+User-agent: ia_archiver
+Disallow:

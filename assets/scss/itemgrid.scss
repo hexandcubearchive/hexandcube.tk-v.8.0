@@ -1,0 +1,40 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+}
+
+.grid-item {
+    padding: 1rem;
+}
+
+.grid-image {
+    border-radius: 8px;
+}
+
+// Mobile only
+@media (max-width: $tablet) {
+    .grid-item {
+        width: 100%;
+    }
+}
+
+// Tablet breakpoint (from 769px)
+@media (min-width: $tablet) {
+    .grid-item {
+        width: 50%;
+    }
+}
+
+// Desktop breakpoint (from 1024px)
+@media (min-width: $desktop) {}
+
+// Widescreen breakpoint (from 1216px)
+@media (min-width: $widescreen) {}
+
+// FullHD breakpoint (from 1408px)
+@media (min-width: $fullhd) {
+    .grid-item {
+        width: 33%;
+    }
+}

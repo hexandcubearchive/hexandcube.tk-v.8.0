@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    {{- partial "head.html" . -}}
+</head>
+
+<body>
+    {{- if .Site.IsServer }}
+        <div id="screendebug"></div>
+    {{ end -}}
+    <div class="container pagewrapper">
+        {{ if .Params.hidenavigation }}
+        <br class="hidenav-spacer">
+        {{ else }}
+        {{- partial "header.html" . -}}
+        {{ end }}
+            <noscript>
+                <div class="notification is-info">
+                    While this website is designed to be able to display content without JavaScript, some features (like icons, dark theme or tools that depend on JavaScript) may not work properly.
+                    If something isn't working, disable your script-blocking software, and try again. 
+                </div>
+            </noscript>
+        <main id="content">
+            {{- block "main" . }}{{- end }}
+        </main>
+        {{ if .Params.hidenavigation }}
+        {{ else }}
+        {{- partial "footer.html" . -}}
+        {{ end }}
+    </div>
+    
+    {{- partial "scripts.html" . -}}
+</body>
+
+</html>

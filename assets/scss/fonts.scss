@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
+
+@font-face {
+    font-family: "Mont";
+    src: url(/fonts/Mont-Heavy.woff2);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "Mont";
+    src: url(/fonts/Mont-ExtraLight.woff2);
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "Hexandcube Icon";
+    src: url(/fonts/Hexandcube-Icon.woff);
+}
+
+.hexandcube-icon {
+    font-family: 'Hexandcube Icon', sans-serif !important;
+    letter-spacing: 0;
+    font-feature-settings: "liga";
+    font-variant-ligatures: discretionary-ligatures;
+}
+
+a.hexandcube-icon {
+    padding: 5px 10px;
+}

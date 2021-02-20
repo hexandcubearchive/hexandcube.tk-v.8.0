@@ -1,0 +1,80 @@
+---
+title: License key verification
+hidesummary: true
+summary: "Verify your license key"
+aliases: ["/verify"]
+---
+
+<div class="p-7">
+    <div class="field">
+        <span class="label">Product ID</span>
+        <div class="control">
+            <input class="input" id="product-id" type="text" placeholder="hexandcube-product">
+        </div>
+    </div>
+
+    <div class="field">
+        <span class="label">License Key</span>
+        <div class="control">
+            <input class="input" id="license-key" type="email" placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX">
+        </div>
+    </div>
+    <a onClick="verifyLicense()" class="button-primary">Verify</a>
+</div>
+
+<div id="result-div" class="notification is-hidden mt-2 mx-7">
+    
+</div>
+
+<script>
+    function verifyLicense() {
+        var productId = document.getElementById("product-id").value;
+        var licenseKey = document.getElementById("license-key").value;
+        var resultDiv = document.getElementById("result-div");
+
+        fetch("https://api.gumroad.com/v2/licenses/verify", {
+            body: `product_permalink=${productId}&license_key=${licenseKey}&increment_uses_count=false`,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            method: "POST"
+        })
+        .then((res) => res.json())
+        .then(function(data) {
+            if (data.success) {
+                resultDiv.classList.remove("is-hidden");
+                resultDiv.classList.remove("is-danger");
+                resultDiv.classList.add("is-success");
+                resultDiv.innerHTML = `
+                <h5 class="has-text-white">Your license key is valid!</h5>
+                <p class="has-text-white">
+                    License key: ${licenseKey}
+                    <br>
+    
+                    Linked email: ${data.purchase.email}
+                    <br>
+                    Issued on: ${data.purchase.created_at}
+                    <br>
+                    Order number: ${data.purchase.order_number}
+                    <br>
+                    Number of uses: ${data.uses}
+                    
+                </p>
+                `
+            } else {
+                resultDiv.classList.remove("is-hidden");
+                resultDiv.classList.remove("is-success");
+                resultDiv.classList.add("is-danger");
+                resultDiv.innerHTML = `
+                <h5 class="has-text-white">Your license key is invalid!</h5>
+                <p class="has-text-white">
+                    License key: ${licenseKey}
+                    <br>
+                    ${data.message}
+
+                </p>
+                `
+            }
+        })
+    }
+</script>

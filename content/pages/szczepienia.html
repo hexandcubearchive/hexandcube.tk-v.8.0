@@ -1,0 +1,226 @@
+---
+title: Raport szczepień w Polsce
+hidesummary: true
+alias: ["/szczepienia"]
+---
+
+<div class="is-family-monospace has-background-light p-5 has-rounded-corners">
+    <p class="is-size-6">
+        <b>Autor raportu:</b> Hexandcube
+        <br>
+        <b>Aktualizacja danych o szczepieniach:</b> <span id="lastVaccUpdate">...</span>
+        <br>
+        <b>Aktualizacja danych szczegółowych NOP:</b> <span id="lastNopUpdate">...</span>
+        <br>
+        <b>Źródła Danych:</b> Ministerstwo Zdrowia, Główny Urząd Statystyczny, Agencja Rezerw Materiałowych<br><br>
+        Na podstawie akrusza <a href="https://bit.ly/SzczepieniaCOVID19" target="_blank">Szczepienia przeciwko COVID-19
+            w Polsce</a>
+        autorstwa <a href="https://twitter.com/micalrg" target="_blank">Michała Roglaskiego</a> i Andrzeja Wisłockiego.
+    </p>
+</div>
+
+<h2 class="mt-4">Statystyki</h2>
+<div class="columns">
+    <div class="column">
+        <h5>Szczepienia</h5>
+        <div class="py-1">
+            <b>Liczba szczepień w ciągu ostatnich 24h:</b>
+            <span class="has-background-purple has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-clock mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="vaccinatedLast24h" class="has-text-white">...</span></span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Łączna liczba wykonanych szczepień:</b>
+            <span class="has-background-blue has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-syringe has-text-white mr-1"></i>
+                <span class="has-text-white"><span id="allVaccinations" class="has-text-white">...</span></span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Zaszczepieni Pierwszą Dawką:</b>
+            <span class="has-background-yellow has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-vial mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="gotFirstDose" class="has-text-white">...</span> (<span id="gotFirstDosePercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Zaszczepieni Dwiema Dawkami:</b>
+            <span class="has-background-green has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-vials mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="gotBothDoses" class="has-text-white">...</span> (<span id="gotBothDosesPercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Łączna liczba zaszczepionych:</b>
+            <span class="has-background-orange has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-shield-virus mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="allVaccinated" class="has-text-white">...</span> (<span id="allVaccinatedPercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+    </div>
+    <div class="column">
+        <h5>Logistyka</h5>
+        <div class="py-1">
+            <b>Dawki dostarczone do Polski:</b>
+            <span class="has-background-blue has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-truck mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="deliveredToPoland" class="has-text-white">...</span></span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Dawki dostarczone do punktów:</b>
+            <span class="has-background-yellow has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-dolly mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="deliveredToPoints" class="has-text-white">...</span> (<span id="deliveredToPointsPercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Dawki w magazynach:</b>
+            <span class="has-background-grey has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-warehouse mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="inStorage" class="has-text-white">...</span> (<span id="inStoragePercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Zutylizowane Dawki:</b>
+            <span class="has-background-red has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-trash mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="discardedDoses" class="has-text-white">...</span> (<span id="discardedDosesPercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column">
+        <h5>Nieporządane Odczyny Poszczepienne (NOP)</h5>
+        <div class="py-1">
+            <b>Liczba NOP:</b>
+            <span class="has-background-purple has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-times-circle mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="allNop" class="has-text-white">...</span></span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Odsetek Szczepień:</b>
+            <span class="has-background-purple has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-chart-pie mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="nopPercent" class="has-text-white">...</span></span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Odsetek NOP u Kobiet:</b>
+            <span class="has-background-pink has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-female mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="womenNopPercent" class="has-text-white">...</span></span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Odsetek NOP u Mężczyzn:</b>
+            <span class="has-background-blue has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-male mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="menNopPercent" class="has-text-white">...</span></span>
+            </span>
+        </div>
+    </div>
+    <div class="column">
+        <h5>&nbsp;</h5>
+        <div class="py-1">
+            <b>Łagodne NOP:</b>
+            <span class="has-background-green has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-allergies mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="mildNops" class="has-text-white">...</span> (<span id="mi</span>ldNopsPercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Poważne NOP:</b>
+            <span class="has-background-orange has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-notes-medical mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="seriousNops" class="has-text-white">...</span> (<span id="seriousNopsPercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Ciężkie NOP:</b>
+            <span class="has-background-red has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-procedures mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="severeNops" class="has-text-white">...</span> (<span id="severeNopsPercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+        <div class="py-1">
+            <b>Zgony:</b>
+            <span class="has-background-black has-rounded-corners py-1 px-2 is-inline-block">
+                <i class="fas fa-cross mr-1 has-text-white"></i>
+                <span class="has-text-white"><span id="nopDeaths" class="has-text-white">...</span> (<span id="nopDeathsPercent" class="has-text-white">...</span>)</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<h3> Wykresy</h3>
+<!-- Dzienna Liczba Szczepień -->
+<iframe width="566" height="371" seamless frameborder="0" class="is-inline-block has-rounded-corners mt-1" scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5GCUOFiIb7PFPfKK6TLNN767e7zFw76ziEhQgTsstA_3AgVkhGQtOa4pg2C5Gh5pyrpQVJxjlINSG/pubchart?oid=1394866700&amp;format=interactive"></iframe>
+<!-- Tygodniowa średnia ruchoma dziennej liczby szczepień -->
+<iframe width="566" height="371" seamless frameborder="0" class="is-inline-block has-rounded-corners mt-1" scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5GCUOFiIb7PFPfKK6TLNN767e7zFw76ziEhQgTsstA_3AgVkhGQtOa4pg2C5Gh5pyrpQVJxjlINSG/pubchart?oid=1009652564&amp;format=interactive"></iframe>
+<!-- Odsetek szczepionego społeczeństwa -->
+<iframe width="566" height="371" seamless frameborder="0" class="is-inline-block has-rounded-corners mt-1" scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5GCUOFiIb7PFPfKK6TLNN767e7zFw76ziEhQgTsstA_3AgVkhGQtOa4pg2C5Gh5pyrpQVJxjlINSG/pubchart?oid=1315210223&amp;format=interactive"></iframe>
+<!-- Rozdysponowanie szczepionek w Polsce -->
+<iframe width="566" height="371" seamless frameborder="0" class="is-inline-block has-rounded-corners mt-1" scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5GCUOFiIb7PFPfKK6TLNN767e7zFw76ziEhQgTsstA_3AgVkhGQtOa4pg2C5Gh5pyrpQVJxjlINSG/pubchart?oid=1587462821&amp;format=interactive"></iframe>
+<!-- Płeć zaszczepionych -->
+<iframe width="566" height="147" seamless frameborder="0" class="is-inline-block has-rounded-corners mt-1" scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5GCUOFiIb7PFPfKK6TLNN767e7zFw76ziEhQgTsstA_3AgVkhGQtOa4pg2C5Gh5pyrpQVJxjlINSG/pubchart?oid=1601394648&amp;format=interactive"></iframe>
+<!-- Odsetek kobiet i mężczyzn wśród przypadków NOP -->
+<iframe width="566" height="147" seamless frameborder="0" class="is-inline-block has-rounded-corners mt-1" scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5GCUOFiIb7PFPfKK6TLNN767e7zFw76ziEhQgTsstA_3AgVkhGQtOa4pg2C5Gh5pyrpQVJxjlINSG/pubchart?oid=1720889402&amp;format=interactive"></iframe>
+<!-- Liczba szczepień (I i II dawka w sumie) według grup wiekowych -->
+<iframe width="566" height="371" seamless frameborder="0" class="is-inline-block has-rounded-corners mt-1" scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5GCUOFiIb7PFPfKK6TLNN767e7zFw76ziEhQgTsstA_3AgVkhGQtOa4pg2C5Gh5pyrpQVJxjlINSG/pubchart?oid=1587694825&amp;format=interactive"></iframe>
+<!-- Rozkład intensywności objawów NOP -->
+<iframe width="566" height="371" seamless frameborder="0" class="is-inline-block has-rounded-corners mt-1" scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5GCUOFiIb7PFPfKK6TLNN767e7zFw76ziEhQgTsstA_3AgVkhGQtOa4pg2C5Gh5pyrpQVJxjlINSG/pubchart?oid=789077481&amp;format=interactive"></iframe>
+<!-- Odsetek zaszczepionych (1 lub 2 dawki) w poszczególnych województwach -->
+<iframe width="1132" height="371" seamless frameborder="0" class="is-inline-block has-rounded-corners mt-1" scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5GCUOFiIb7PFPfKK6TLNN767e7zFw76ziEhQgTsstA_3AgVkhGQtOa4pg2C5Gh5pyrpQVJxjlINSG/pubchart?oid=396409456&amp;format=interactive"></iframe>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<script>
+    let api = 'https://sheetdb.io/api/v1/60768wlofphhe?sheet=API';
+
+    axios.get(api)
+        .then(response => {
+            document.querySelector("#vaccinatedLast24h").innerHTML = response.data[0].vaccinatedLast24h;
+            document.querySelector("#lastVaccUpdate").innerHTML = response.data[0].lastVaccUpdate;
+            document.querySelector("#lastNopUpdate").innerHTML = response.data[0].lastNopUpdate;
+            document.querySelector("#allVaccinations").innerHTML = response.data[0].allVaccinations;
+            document.querySelector("#allVaccinated").innerHTML = response.data[0].allVaccinated;
+            document.querySelector("#allVaccinatedPercent").innerHTML = response.data[0].allVaccinatedPercent;
+            document.querySelector("#gotFirstDose").innerHTML = response.data[0].gotFirstDose;
+            document.querySelector("#gotFirstDosePercent").innerHTML = response.data[0].gotFirstDosePercent;
+            document.querySelector("#gotBothDoses").innerHTML = response.data[0].gotBothDoses;
+            document.querySelector("#gotBothDosesPercent").innerHTML = response.data[0].gotBothDosesPercent;
+            document.querySelector("#deliveredToPoland").innerHTML = response.data[0].deliveredToPoland;
+            document.querySelector("#deliveredToPoints").innerHTML = response.data[0].deliveredToPoints;
+            document.querySelector("#deliveredToPointsPercent").innerHTML = response.data[0].deliveredToPointsPercent;
+            document.querySelector("#inStorage").innerHTML = response.data[0].inStorage;
+            document.querySelector("#inStoragePercent").innerHTML = response.data[0].inStoragePercent;
+            document.querySelector("#discardedDoses").innerHTML = response.data[0].discardedDoses;
+            document.querySelector("#discardedDosesPercent").innerHTML = response.data[0].discardedDosesPercent;
+            document.querySelector("#allNop").innerHTML = response.data[0].allNop;
+            document.querySelector("#nopPercent").innerHTML = response.data[0].nopPercent;
+            document.querySelector("#womenNopPercent").innerHTML = response.data[0].womenNopPercent;
+            document.querySelector("#menNopPercent").innerHTML = response.data[0].menNopPercent;
+            document.querySelector("#mildNops").innerHTML = response.data[0].mildNops;
+            document.querySelector("#seriousNops").innerHTML = response.data[0].seriousNops;
+            document.querySelector("#severeNops").innerHTML = response.data[0].severeNops;
+            document.querySelector("#nopDeaths").innerHTML = response.data[0].nopDeaths;
+            document.querySelector("#mildNopsPercent").innerHTML = response.data[0].mildNopsPercent;
+            document.querySelector("#seriousNopsPercent").innerHTML = response.data[0].seriousNopsPercent;
+            document.querySelector("#severeNopsPercent").innerHTML = response.data[0].severeNopsPercent;
+            document.querySelector("#nopDeathsPercent").innerHTML = response.data[0].nopDeathsPercent;
+        })
+</script>

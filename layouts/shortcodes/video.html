@@ -1,0 +1,6 @@
+<div class="align-center">
+    <video {{ if .Get "autoplay" }}autoplay{{ end }} {{ if .Get "loop" }}loop{{ end }} {{ if .Get "controls" }}controls{{ end }} preload="auto">
+        <source src="{{ .Get "src" }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>

@@ -1,0 +1,96 @@
+<nav class="navbar py-4 has-animation-slidedown" role="navigation">
+    <div class="navbar-brand">
+        <a href="/"
+            class="title is-2 navbar-item has-text-weight-bold is-family-secondary is-lowercase
+            menu-item logotype">Hexandcube</a>
+
+        <a role="button" onclick="toggleNavbarMenu()" class="navbar-burger" id="navbar-burger" aria-label="menu toggle" data-target="mainNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
+
+    <div id="mainNav" class="navbar-menu">
+        <div class="navbar-start">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.navbar_start }}
+            <a href="{{ .URL }}" class="navbar-item">{{ .Name }}
+                {{if or ($currentPage.IsMenuCurrent "navbar_start" .) ($currentPage.HasMenuCurrent "navbar_start" .) }}is-active{{end}}</a>
+            {{ end }}
+        </div>
+        <div class="navbar-end ">
+            {{ range .Site.Menus.navbar_end }}
+            <a href="{{ .URL }}" class="navbar-item">{{ .Name }}
+                {{if or ($currentPage.IsMenuCurrent "navbar-end" .) ($currentPage.HasMenuCurrent "navbar-end" .) }}is-active{{end}}</a>
+            {{ end }}
+            {{ if .Site.Menus.navbar_more }}
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link is-arrowless">
+                    More
+                </a>
+
+                <div class="navbar-dropdown">
+                    {{ range .Site.Menus.navbar_more }}
+                    <a href="{{ .URL }}"
+                        class="navbar-item {{if or ($currentPage.IsMenuCurrent "navbar-more" .) ($currentPage.HasMenuCurrent "navbar-more" .) }}is-active{{end}}">
+                        {{ .Name }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+            <a class="navbar-item">
+                <label for="theme-toggle" id="theme-toggle-label">
+                    <svg width="25px" fill="none" class="theme-toggle-icon" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                        </path>
+                    </svg>
+                    <span class="mobile-only">Dark Theme</span>
+                </label>
+                <input type="checkbox" class="is-hidden" id="theme-toggle" onclick="toggleTheme()" />
+            </a>
+        </div>
+    </div>
+
+
+
+
+</nav>
+
+<!-- <nav class="py-4" class="navbar">
+    <div class="navbar-brand">
+        <a href="/"
+            class="title is-2 navbar-item has-text-weight-bold has-text-black-ter is-family-secondary is-lowercase menu-item logotype">Hexandcube</a>
+    </div>
+    <a role="button" aria-label="menu" onclick="toggleNavbarItems()" class="menu-item mobile-only navbar-burger"><i
+            class="fas fa-bars title is-3 has-text-right has-text-black-ter"></i></a>
+    <br>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            test
+        </div>
+        <div class="navbar-end">
+            <a href="#" class="menu-link navbar-item">Item 1</a>
+            <a href="#" class="menu-link navbar-item">Item 2</a>
+            <a href="#" class="menu-link navbar-item">Item 3</a>
+        </div>
+    </div>
+</nav> -->
+
+<script>
+    var mainNav = document.getElementById("mainNav");
+    var navbarBurger = document.getElementById("navbar-burger");
+
+    function toggleNavbarMenu() {
+        if (mainNav.classList.contains("is-active")) {
+            mainNav.classList.remove("is-active");
+            navbarBurger.classList.remove("is-active");
+        } else {
+            mainNav.classList.add("is-active");
+            navbarBurger.classList.add("is-active");
+        }
+    }
+</script>

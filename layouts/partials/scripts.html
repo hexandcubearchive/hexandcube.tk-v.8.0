@@ -1,0 +1,99 @@
+<script src="https://kit.fontawesome.com/f6e2d80f62.js" crossorigin="anonymous"></script>
+
+<!-- Theme Toggle -->
+<script>
+    function setTheme(themeName) {
+        localStorage.setItem('theme', themeName);
+        document.documentElement.className = themeName;
+        themeToggle = document.getElementById("theme-toggle-label");
+        if (themeName === 'dark') {
+            themeToggle.innerHTML =
+                '<svg fill="none" class="theme-toggle-icon" width="25px" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg><span class="mobile-only" style="margin-left: 5px; display: inline-block; vertical-align: middle;">Light theme</span>'
+        } else themeToggle.innerHTML =
+            '<svg fill="none" class="theme-toggle-icon" width="25px" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg><span class="mobile-only" style="margin-left: 5px; display: inline-block; vertical-align: middle;">Dark theme</span>'
+    }
+
+    function toggleTheme() {
+        if (localStorage.getItem('theme') === 'light') {
+            setTheme('dark');
+
+        } else {
+            setTheme('light');
+        }
+    }
+    window.onload = () => {
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme('dark');
+        } else if (localStorage.getItem('theme') === 'light') {
+            setTheme('light');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    }
+
+    // Set the theme of the Utterances comment widget
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        if (localStorage.getItem('theme') === 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'photon-dark'
+            };
+            const utterances = document.querySelector('iframe').contentWindow;
+            utterances.postMessage(message, 'https://utteranc.es');
+        }
+    });
+</script>
+<!-- Hexandcube Analytics Script -->
+<script async defer data-website-id="3b866155-103e-4b2b-987e-26d3f6274597"
+    src="https://analytics.hexandcube.tk/umami.js"></script>
+
+<!-- Service Status Indicator -->
+<script type="text/javascript" src="https://cdn.statuspage.io/se-v2.js"></script>
+<script>
+    var statuspage = new StatusPage.page({
+        page: 'wdf91pvxlsbj'
+    });
+    statuspage.summary({
+        success: function (data) {
+            var statusEmbed = document.querySelector("#system-status");
+            var statusDot = document.querySelector("#status-dot");
+            var serviceStatus = data.status.indicator;
+            if ("none" == serviceStatus) {
+                statusEmbed.innerText = "All systems operational";
+                statusEmbed.classList.add("has-text-success");
+                statusEmbed.classList.remove("has-text-grey");
+                statusDot.classList.remove("has-background-grey");
+                statusDot.classList.add("has-background-success");
+            } else if ("minor" == serviceStatus) {
+                statusEmbed.innerText = "Minor Outage";
+                statusEmbed.classList.add("has-text-warning");
+                statusEmbed.classList.remove("has-text-grey");
+                statusDot.classList.remove("has-background-grey");
+                statusDot.classList.add("has-background-warning");
+            } else if ("major" == serviceStatus) {
+                statusEmbed.innerText = "Minor Outage";
+                statusEmbed.classList.add("has-text-danger");
+                statusEmbed.classList.remove("has-text-grey");
+                statusDot.classList.remove("has-background-grey");
+                statusDot.classList.add("has-background-danger");
+            } else if ("maintenance" == serviceStatus) {
+                statusEmbed.innerText = "Service Maintenance";
+                statusEmbed.classList.add("has-text-info");
+                statusEmbed.classList.remove("has-text-grey");
+                statusDot.classList.remove("has-background-grey");
+                statusDot.classList.add("has-background-info");
+            } else {
+                statusEmbed.innerText = "Unknown";
+            }
+        }
+    });
+</script>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/serviceworker.js');
+    }
+</script>

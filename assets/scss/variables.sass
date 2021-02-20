@@ -1,0 +1,159 @@
+$black:        #0f151a
+$black-bis:    #1f2937!default
+$black-ter:    #242f3f !default
+
+$gray-darkest: #162b32
+$grey-darker:  #4B5053
+$grey-dark:    #71787D
+$grey:         #96a0a6
+$grey-light:   #B1B8BD
+$grey-lighter: #CBD0D3
+$grey-lightest: #E5E8E9
+
+$white-ter:    hsl(0, 0%, 96%) !default
+$white-bis:    hsl(0, 0%, 98%) !default
+$white:        hsl(0, 0%, 100%) !default
+
+$orange:          #ff6a3d
+$orange-light:    #ff6a3d33
+$yellow:          #ffc825
+$yellow-light:    #ffc82533
+$green:           #1fc58e
+$green-light:     #1fc58e33
+$turquoise:       #05f4b7
+$turquoise-light: #05f4b733
+$cyan:            #3cbcc3
+$cyan-light:      #3cbcc333
+$blue:            #4a5fc1
+$blue-light:      #4a5fc133
+$purple:          #361999
+$purple-light:    #36199933
+$red:             #ff585d
+$red-light:       #ff585d33
+$pink:            #f8c1b8
+$pink-light:      #f8c1b833
+
+// Typography
+
+$family-sans-serif: "Work Sans", sans-serif
+$family-monospace: "Space Mono", monospace
+$render-mode: optimizeLegibility !default
+
+$size-1: 3rem !default
+$size-2: 2.5rem !default
+$size-3: 2rem !default
+$size-4: 1.5rem !default
+$size-5: 1.25rem !default
+$size-6: 1rem !default
+$size-7: 0.75rem !default
+$size-8: 0.5rem 
+$size-9: 0.25rem 
+$size-10: 0.1rem 
+
+$weight-light: 300 !default
+$weight-normal: 400 !default
+$weight-medium: 500 !default
+$weight-semibold: 600 !default
+$weight-bold: 700 !default
+
+// Spacing
+
+$block-spacing: 1.5rem !default
+$spacing-values: ("0": 0, "1": 0.25rem, "2": 0.5rem, "3": 0.75rem, "4": 1rem, "5": 1.5rem, "6": 3rem, "7": 3.5rem, "8": 4.5rem, "9": 6rem, "10": 8rem )
+
+// Responsiveness
+
+// The container horizontal gap, which acts as the offset for breakpoints
+$gap: 32px !default
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$tablet: 769px !default
+// 960px container + 4rem
+$desktop: 960px + (2 * $gap) !default
+// 1152px container + 4rem
+$widescreen: 1152px + (2 * $gap) !default
+$widescreen-enabled: true !default
+// 1344px container + 4rem
+$fullhd: 1344px + (2 * $gap) !default
+$fullhd-enabled: true !default
+
+// Miscellaneous
+
+$easing: ease-out !default
+$radius-small: 2px !default
+$radius: 4px !default
+$radius-large: 6px !default
+$radius-rounded: 290486px !default
+$speed: 86ms !default
+
+// Flags
+
+$variable-columns: true !default
+$rtl: false !default
+
+$primary: $red
+$info: $blue !default
+$success: $green !default
+$warning: $yellow !default
+$danger: $red !default
+
+$light: $white-ter !default
+$dark: $black-ter
+
+// General colors
+
+$scheme-main: $white !default
+$scheme-main-bis: $white-bis !default
+$scheme-main-ter: $white-ter !default
+$scheme-invert: $black !default
+$scheme-invert-bis: $black-bis !default
+$scheme-invert-ter: $black-ter !default
+
+$background: $white
+$background-invert: $black-bis
+
+$border: $grey-lighter !default
+$border-hover: $grey-light !default
+$border-light: $grey-lightest !default
+$border-light-hover: $grey-light !default
+
+// Text colors
+
+$text: $black-ter
+$text-invert: findColorInvert($text) !default
+$text-light: $grey !default
+$text-strong: $grey-darker !default
+
+// Code colors
+
+$code: darken($red, 15%) !default
+$code-background: $background !default
+
+$pre: $text !default
+$pre-background: $background !default
+
+// Link colors
+
+$link: $blue !default
+$link-invert: findColorInvert($link) !default
+$link-light: findLightColor($link) !default
+$link-dark: findDarkColor($link) !default
+$link-visited: $purple !default
+
+$link-hover: $grey-darker !default
+$link-hover-border: $grey-light !default
+
+$link-focus: $grey-darker !default
+$link-focus-border: $blue !default
+
+$link-active: $grey-darker !default
+$link-active-border: $grey-dark !default
+
+// Typography
+
+$family-primary: $family-sans-serif !default
+$family-secondary: "Mont", sans-serif
+$family-code: $family-monospace !default
+
+// Custom
+$ease-in-out: all .15s ease-in-out
+$rounded: 8px

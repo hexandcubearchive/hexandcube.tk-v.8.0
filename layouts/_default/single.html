@@ -1,0 +1,54 @@
+{{ define "main" }}
+
+<div class="has-animation-slideup page-content container">
+    {{ $currentPage := . }}
+
+    <div class="has-text-primary is-family-secondary has-text-weight-bold">
+        {{ if .Params.Author }}
+        {{ .Params.Author }}
+        {{ end }}
+    </div>
+
+    {{ if .Date }}
+    <div class="has-text-grey is-family-secondary has-text-weight-bold">
+        {{ .Date.Format "January 02, 2006" }}
+    </div>
+    {{ end }}
+
+    {{ with .Params.Updated }}
+    <div class="has-text-grey is-family-primary has-text-weight-normal">
+        Updated on {{ dateFormat "January 02, 2006" . }}
+    </div>
+    {{ end }}
+    
+    {{if .Params.hidetitle}}
+    {{ else }}
+    <h1 class="m-0">{{ .Title }}</h1>
+    {{ end }}
+
+    {{ if .Params.hidesummary }}
+    {{ else }}
+    {{ with .Summary }}
+    <br>
+    <div class="has-text-grey is-size-4 mb-1" style="margin-top: -0.5rem">
+        {{ . }}
+    </div>
+    {{ end }}
+    {{ end }}
+    {{ with .Params.thumbnail }}
+    <a href="{{ . }}" class="clean">
+        <img src="{{ . }}" alt="Thumbnail" class="-mt-5 thumbnail">
+    </a>
+    {{ end }}
+    {{ with .Params.thumbnailCredits }}
+    <span class="is-family-monospace is-size-6">{{ . | markdownify }}</span>
+    {{ end }}
+    <div class="content">
+    {{ .Content }}
+    </div>
+    {{ if .Params.Comments }}
+    {{ partial "comments" }}
+    {{ end }}
+</div>
+
+{{ end }}

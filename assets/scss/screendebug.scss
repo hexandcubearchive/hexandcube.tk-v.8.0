@@ -1,0 +1,44 @@
+// Bulma screen debugger by Hexandcube - displays the current breakpoint in the bottom-left corner of the screen
+// Requires <div id="screendebug"></div> that is a direct child of <body>, 
+// and a sibling of the main page container.
+// Example structure:
+// <body>
+//    <div id="screendebug"></div>
+//    <div id="pageContainer">
+//       {{ page content }}
+//    </div>
+
+#screendebug::after {
+    z-index: 500;
+    content: "Mobile";
+    position: fixed;
+    background: black;
+    color: white;
+    padding: 3px 6px;
+    left: 0;
+    bottom: 0;
+}
+
+@media (min-width: $tablet) {
+    #screendebug::after {
+        content: "Tablet";
+    }
+}
+
+@media (min-width: $desktop) {
+    #screendebug::after {
+        content: "Desktop";
+    }
+}
+
+@media (min-width: $widescreen) {
+    #screendebug::after {
+        content: "Widescreen";
+    }
+}
+
+@media (min-width: $fullhd) {
+    #screendebug::after {
+        content: "FullHD";
+    }
+}

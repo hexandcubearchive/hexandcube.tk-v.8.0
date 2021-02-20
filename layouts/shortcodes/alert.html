@@ -1,0 +1,7 @@
+<div class="notification is-{{ .Get "color"}} {{ .Get "class" }}">
+    {{ $currentPage := . }}
+    {{ with .Get "icon" }}
+    <i class="mr-3 mt-1 text-{{ $currentPage.Get "color"}}-800 dark:text-{{ $currentPage.Get "color"}}-900 {{ . }}"></i>
+    {{ end }}
+    <span class="text-{{ .Get "color"}}-800 dark:text-{{ .Get "color"}}-900 font-bold">{{ .Inner }}</span>
+</div>

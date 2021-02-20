@@ -1,0 +1,42 @@
+<footer class="has-animation-slideup py-4 mt-7">
+    <div class="level footer-level" role="navigation">
+        <div class="level-item" style="justify-content: flex-start;">
+            <a href="/" class="
+            menu-item has-text-left hexandcube-icon has-text-grey mb-5" aria-label="Home Page" style="font-size: 4rem;">h</a>
+            <br>
+        </div>
+        <div
+            class="level-item is-block has-text-grey is-family-monospace has-text-weight-bold is-size-4-mobile is-size-4-tablet is-size-5-desktop">
+            {{ range .Site.Menus.footer_row_1 }}
+            <a href="{{ .URL }}" class="has-text-grey mb-1 is-inline-block" rel="me">{{ .Name }}</a> <br>
+            {{ end }}
+        </div>
+        <div
+            class="level-item is-block has-text-grey is-family-monospace has-text-weight-bold is-size-4-mobile is-size-4-tablet is-size-5-desktop">
+            {{ range .Site.Menus.footer_row_2 }}
+            <a href="{{ .URL }}" class="has-text-grey mb-1 is-inline-block" rel="me">{{ .Name }}</a> <br>
+            {{ end }}
+        </div>
+        <div
+            class="level-item is-block has-text-grey is-family-monospace has-text-weight-bold is-size-4-mobile is-size-4-tablet is-size-5-desktop">
+            {{ range .Site.Menus.footer_row_3 }}
+            <a href="{{ .URL }}" class="has-text-grey mb-1 is-inline-block">{{ .Name }}</a> <br>
+            {{ end }}
+        </div>
+    </div>
+    <div class="content has-text-centered mt-6">
+        <div class="is-size-6 has-text-grey is-family-secondary has-text-weight-bold mb-1">
+            Copyright &copy; {{ .Site.Params.CopyrightStartDate }} - {{ now.Format "2006" }} {{ .Site.Params.CopyrightAuthor }} &middot; <a class="has-text-grey" href="/license">Some rights reserved</a>
+        </div>
+        <div class="is-family-primary mb-2">
+            <div id="status-div">
+                <span class="status-label has-text-grey"></span> <span id="status-dot"
+                    class="is-rounded has-background-grey"></span>
+                <a href="https://status.hexandcube.tk" id="system-status">Loading status...</a>
+            </div>
+        </div>
+        <div class="is-family-primary">
+            <a href="/getfloof" title="Get floof">🦊</a>
+        </div>
+    </div>
+</footer>

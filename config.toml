@@ -1,0 +1,93 @@
+baseURL = "https://hexandcube.tk/"
+title = "Hexandcube.tk"
+languageCode = "en-us"
+assetDir = "assets"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+copyrightStartDate = 2017
+copyrightAuthor = "Hexandcube"
+siteDescription = "Computer guy, and open source enthusiast from Poland."
+
+openGraph = true
+ogType = "profile"
+ogURL = "https://hexandcube.tk"
+ogImageEndpoint = "https://opengraph.hexandcube.tk/"
+ogImageMarkdown = true
+twitterCards = true
+twitterCardType = "summary"
+twitterSiteHandle = "@hexandcube"
+twitterCreatorHandle = "@hexandcube"
+
+[menu]
+
+    [[menu.navbar_end]]
+        identifier = "About"
+        name = "About"
+        url = "/about/"
+        weight = -100
+
+    [[menu.navbar_end]]
+        identifier = "Blog"
+        name = "Posts"
+        url = "/blog/"
+        weight = -90
+    
+    [[menu.navbar_end]]
+        identifier = "Wallpapers"
+        name = "Wallpapers"
+        url = "/wallpapers/"
+        weight = -80
+
+    [[menu.navbar_more]]
+        identifier = "Files"
+        name = "Files"
+        url = "/files/"
+        weight = -100
+
+    [[menu.footer_row_1]]
+        name = "Twitter"
+        url = "https://twitter.com/hexandcube"
+        weight = -100
+
+    [[menu.footer_row_1]]
+        name = "Mastodon"
+        url = "https://mstdn.social/hexandcube"
+        weight = -90
+
+    [[menu.footer_row_1]]
+        name = "GitHub"
+        url = "https://github.com/hexandcube"
+        weight = -80
+
+    [[menu.footer_row_2]]
+        name = "Unsplash"
+        url = "https://unsplash.com/@hexandcube"
+        weight = -100
+
+    [[menu.footer_row_2]]
+        name = "Instagram"
+        url = "https://instagram.com/hexandcube"
+        weight = -90
+
+    [[menu.footer_row_2]]
+        name = "Telegram"
+        url = "https://t.me/hexandcube"
+        weight = -80
+
+    [[menu.footer_row_3]]
+        name = "About"
+        url = "/about"
+        weight = -100
+
+    [[menu.footer_row_3]]
+        name = "Wallpapers"
+        url = "/wallpapers"
+        weight = -90
+
+    [[menu.footer_row_3]]
+        name = "Open Source"
+        url = "/opensource"
+        weight = -80

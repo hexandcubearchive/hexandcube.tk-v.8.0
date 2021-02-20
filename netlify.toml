@@ -1,0 +1,20 @@
+[build]
+    base = "/"
+
+[context.production]
+  publish = "public/"
+  command = "hugo --gc --minify --buildFuture"
+  environment = { HUGO_VERSION = "v0.80.0" }
+
+[dev]
+    command = "hugo server --disableFastRender"
+    functions = "netlify/functions"
+
+[[plugins]]
+    package = "netlify-plugin-image-optim"
+
+[[plugins]]
+    package = "netlify-plugin-submit-sitemap"
+    [plugins.inputs]
+        baseUrl = "https://hexandcube.tk"
+        sitemapPath = "/sitemap.xml"

@@ -1,0 +1,12 @@
+<table>
+    <tbody>
+        {{ range .Site.Data.im}}
+        <tr>
+            <td>
+                {{ .name }} {{ if .notsecure }}<i class="fas has-text-grey fa-xs fa-exclamation-triangle"></i>{{ end }}
+            </td>
+            <td><a href="{{ .url }}" rel="me" class="is-family-monospace">{{ .username }}</a></td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
