@@ -2,7 +2,7 @@
     "1": {
         "name": "Telegram",
         "username": "@hexandcube",
-        "url": "https://t.me/@hexandcube"
+        "url": "https://t.me/hexandcube"
     },
     "2": {
         "name": "Signal*",
@@ -17,7 +17,7 @@
     },
     "4": {
         "name": "Matrix",
-        "username": "@hexandcube:marix.org",
+        "username": "@hexandcube:matrix.org",
         "url": "https://matrix.to/#/@hexandcube:matrix.org"
     }
 }
