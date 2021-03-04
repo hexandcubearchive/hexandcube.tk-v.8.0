@@ -1,0 +1,24 @@
+backend:
+  name: github
+  branch: master
+  open_authoring: true
+  repo: hexandcube/hexandcube.tk
+
+publish_mode: editorial_workflow
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "post"
+    label: "Post"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Comments", name: "comments", widget: "boolean", required: false}
+      - {label: "Publish Date", format: "YYYY-MM-DD", name: "date", widget: "datetime"}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
+      - {label: "Thumbnail credits", name: "thumbnailCredits", widget: "string", required: false}
+      - {label: "Summary", name: "summary", widget: "title", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
