@@ -1,12 +1,15 @@
 ---
-title: "Things I would like to see in Android 12"
-date: 2020-10-25
-slug: things-i-want-in-android-12
-author: "Hexandcube"
+title: Things I would like to see in Android 13
+slug: things-i-want-in-android-13
 comments: true
-summary: "I've been using Android 11 on my Pixel 4a for almost a month now, and I love it. But it's definitely not perfect. While Android is a pretty mature OS right now, there are still few things that I think should be added in future versions of Google's mobile operating system."
-thumbnail: "https://images.unsplash.com/photo-1599016012665-13b74bb3b528?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1493&q=80"
-thumbnailCredits: "Photo by [Daniel Romero](https://unsplash.com/@rmrdnl)"
+author: Hexandcube
+date: 2020-10-25
+thumbnail: https://images.unsplash.com/photo-1599016012665-13b74bb3b528?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1493&q=80
+thumbnailCredits: Photo by [Daniel Romero](https://unsplash.com/@rmrdnl)
+summary: I've been using Android 11 on my Pixel 4a for almost a month now, and I
+  love it. But it's definitely not perfect. While Android is a pretty mature OS
+  right now, there are still few things that I think should be added in future
+  versions of Google's mobile operating system.
 ---
 
 ## Scrolling screenshots
