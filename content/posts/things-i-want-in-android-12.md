@@ -1,7 +1,7 @@
 ---
 title: "Things I would like to see in Android 12"
 date: 2020-10-25
-draft: false
+slug: things-i-want-in-android-12
 author: "Hexandcube"
 comments: true
 summary: "I've been using Android 11 on my Pixel 4a for almost a month now, and I love it. But it's definitely not perfect. While Android is a pretty mature OS right now, there are still few things that I think should be added in future versions of Google's mobile operating system."

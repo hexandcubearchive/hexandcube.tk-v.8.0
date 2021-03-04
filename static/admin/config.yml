@@ -3,22 +3,39 @@ backend:
   branch: master
   open_authoring: true
   repo: hexandcube/hexandcube.tk
+  site_domain: hexandcube.tk
+  commit_messages:
+    create: '{{collection}} "{{slug}}" created by {{author-login}}'
+    update: '{{collection}} "{{slug}}" updated by {{author-login}}'
+    delete: '{{collection}} "{{slug}}" deleted by {{author-login}}'
+    uploadMedia: '"{{path}}" uploaded by {{author-login}}'
+    deleteMedia: '"{{path}}" deleted by {{author-login}}'
+    openAuthoring: '{{message}}'
 
+show_preview_links: true
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
+site_url: https://hexandcube.tk
+display_url: https://hexandcube.tk
+logo_url: https://hexandcube.tk/images/logotype.png
+
+editor:
+  preview: false
 
 collections:
   - name: "post"
     label: "Post"
     folder: "content/posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{fields.slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Comments", name: "comments", widget: "boolean", required: false}
-      - {label: "Publish Date", format: "YYYY-MM-DD", name: "date", widget: "datetime"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Publish Date", format: "YYYY-MM-DD", name: "date", widget: "date"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Thumbnail credits", name: "thumbnailCredits", widget: "string", required: false}
-      - {label: "Summary", name: "summary", widget: "title", required: false}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
