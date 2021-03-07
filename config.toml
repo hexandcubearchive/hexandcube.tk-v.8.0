@@ -2,6 +2,7 @@ baseURL = "https://hexandcube.tk/"
 title = "Hexandcube.tk"
 languageCode = "en-us"
 assetDir = "assets"
+paginate = 10
 
 [markup.goldmark.renderer]
 unsafe = true
