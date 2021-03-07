@@ -30,9 +30,9 @@ twitterCreatorHandle = "@hexandcube"
         weight = -100
 
     [[menu.navbar_end]]
-        identifier = "Blog"
+        identifier = "Posts"
         name = "Posts"
-        url = "/blog/"
+        url = "/posts/"
         weight = -90
     
     [[menu.navbar_end]]
