@@ -38,5 +38,10 @@
         "name": "Instagram",
         "username": "@hexandcube",
         "url": "https://instagram.com/hexandcube"
+    },
+    "9": {
+        "name": "Mozilla AMO",
+        "username": "Hexandcube",
+        "url": "https://addons.mozilla.org/en-US/firefox/user/14625252/"
     }
 }
