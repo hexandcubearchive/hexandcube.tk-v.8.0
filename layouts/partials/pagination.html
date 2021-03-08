@@ -3,13 +3,14 @@
 {{ if gt $paginator.TotalPages 1 }}
 
 <ul class="pagination">
-
-    {{ if ne $paginator.PageNumber 1 }}
-    <li class="pagination__item pagination__item--first">
-        <a class="pagination__link pagination__link--first" href="{{ $paginator.First.URL }}">
-            <i class="fas fa-angle-double-left pagination__icon"></i>
-        </a>
-    </li>
+    {{ if .Params.paginationShortcuts }}
+        {{ if ne $paginator.PageNumber 1 }}
+        <li class="pagination__item pagination__item--first">
+            <a class="pagination__link pagination__link--first" href="{{ $paginator.First.URL }}">
+                <i class="fas fa-angle-double-left pagination__icon"></i>
+            </a>
+        </li>
+        {{ end }}
     {{ end }}
 
     {{ if $paginator.HasPrev }}
@@ -36,12 +37,14 @@
     </li>
     {{ end }}
 
-    {{ if ne $paginator.PageNumber $paginator.TotalPages }}
-    <li class="pagination__item pagination__item--last">
-        <a class="pagination__link pagination__link--last" href="{{ $paginator.Last.URL }}">
-            <i class="fas fa-angle-double-right pagination__icon"></i>
-        </a>
-    </li>
+    {{ if .Params.paginationShortcuts }}
+        {{ if ne $paginator.PageNumber $paginator.TotalPages }}
+        <li class="pagination__item pagination__item--last">
+            <a class="pagination__link pagination__link--last" href="{{ $paginator.Last.URL }}">
+                <i class="fas fa-angle-double-right pagination__icon"></i>
+            </a>
+        </li>
+        {{ end }}
     {{ end }}
 
 </ul>
