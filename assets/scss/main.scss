@@ -418,6 +418,32 @@ hr,
     color: $grey;
 }
 
+.pagination {
+    margin-top: 30px;
+    padding: 3px;
+    justify-content: center;
+}
+
+.pagination__item {
+    font-size: 25px;
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.pagination__link {
+    color: var(--secondary-text-color) !important;
+}
+
+.pagination__item--current>.pagination__link {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+}
+
+.pagination__icon {
+    color: var(--secondary-text-color) !important;
+}
+
 #status-dot {
     width: 2px;
     padding: 5px;
@@ -547,6 +573,12 @@ a.clean:hover {
 
     .navbar-dropdown>.navbar-item {
         margin: 0;
+    }
+
+    .pagination__item {
+        font-size: 20px;
+        margin-left: 2px;
+        margin-right: 2px;
     }
 
     h1 {
