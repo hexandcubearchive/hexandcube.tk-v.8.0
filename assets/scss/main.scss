@@ -444,6 +444,11 @@ hr,
     color: var(--secondary-text-color) !important;
 }
 
+.is-full-width {
+    width: 100% !important;
+    text-align: center;
+}
+
 #status-dot {
     width: 2px;
     padding: 5px;

@@ -10,7 +10,7 @@
         {{ $paginator := .Paginate (sort .Pages "Params.id" "desc" ) }}
         {{ range $paginator.Pages }}
         <div class="grid-item">
-            <div class="grid-image-container">
+            <div onClick="window.location.href = '{{ .RelPermalink }}';" class="grid-image-container is-clickable">
                 <img alt="content" class="grid-image" draggable="false"
                     src="https://files.hexandcube.tk/wallpapers/thumbnails/Wallpaper-{{ .Params.id }}{{ with .Params.variant }}-{{ . }}{{ end }}.png">
             </div>
@@ -21,7 +21,9 @@
                     <span class="is-family-monospace">{{ .Params.resolution }}</span>
                 </div>
                 <div class="level-right">
-                    <a class="button-text"
+                    <a class="button-text" href="{{ .RelPermalink }}" title="Preview"><i
+                            class="fas has-text-primary fa-external-link-square-alt"></i></a>
+                    <a class="button-text" type="application/octet-stream"
                         href="https://files.hexandcube.tk/wallpapers/Wallpaper-{{ .Params.id }}{{ with .Params.variant }}-{{ . }}{{ end }}.png"
                         title="Download" download><i class="fas has-text-primary fa-download"></i></a>
                 </div>

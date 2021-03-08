@@ -1,0 +1,76 @@
+{{ define "main" }}
+
+<div class="has-animation-slideup page-content container">
+    {{ $currentPage := . }}
+
+    <div class="columns">
+        <div class="column is-two-thirds">
+            <img alt="content" class="grid-image" draggable="false"
+                src="https://files.hexandcube.tk/wallpapers/Wallpaper-{{ .Params.id }}{{ with .Params.variant }}-{{ . }}{{ end }}.png">
+        </div>
+        <div class="column">
+            <h1 class="m-0 is-size-2">{{ .Title }}</h1>
+            <div class="pl-2 mt-4">
+                <span class="has-text-weight-bold">
+                    <i class="fas fa-image"></i>
+                    Wallpaper ID:
+                </span>
+                <span class="is-family-monospace has-text-primary">
+                    {{ .Params.id }}
+                </span>
+                {{ with .Params.variant }}
+                <br>
+                <span class="has-text-weight-bold">
+                    <i class="fas fa-tint"></i>
+                    Variant:
+                </span>
+                <span class="is-family-monospace has-text-primary">
+                    {{ . }}
+                </span>
+                {{ end }}
+                <br>
+                <span class="has-text-weight-bold">
+                    <i class="fas fa-expand"></i>
+                    Resolution:
+                </span>
+                <span class="is-family-monospace has-text-primary">
+                    {{ .Params.resolution }}
+                </span>
+                <br>
+                <span class="has-text-weight-bold">
+                    <i class="fas fa-certificate"></i>
+                    License:
+                </span>
+                <span class="is-family-monospace has-text-primary">
+                    <a href="{{ .Site.Params.Content.LicensesPage }}">{{ .Site.Params.Content.WallpapersLicense }}</a>
+                </span>
+                <br>
+                <span class="has-text-weight-bold">
+                    <i class="fas fa-user"></i>
+                    Author:
+                </span>
+                <span class="is-family-monospace has-text-primary">
+                    {{ .Site.Params.Content.WallpapersAuthor }}
+                </span>
+            </div>
+            <div class="mt-5">
+                <a href="https://files.hexandcube.tk/wallpapers/Wallpaper-{{ .Params.id }}{{ with .Params.variant }}-{{ . }}{{ end }}.png"
+                    class="button-primary is-full-width is-block" type="application/octet-stream" download><i
+                        class="fas fa-download"></i>
+                    Download</a>
+                <a href="#" onclick="showImageURL()"
+                    class="button-text is-full-width is-block"><i class="fas fa-link"></i>
+                    Image URL</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showImageURL() {
+        window.prompt("Use CTRL+C to copy",
+        "https://files.hexandcube.tk/wallpapers/Wallpaper-{{ .Params.id }}{{ with .Params.variant }}-{{ . }}{{ end }}.png");
+    }
+</script>
+
+{{ end }}
