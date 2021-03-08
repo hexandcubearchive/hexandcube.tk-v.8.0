@@ -1,0 +1,42 @@
+{{ define "main" }}
+
+<div class="has-animation-slideup page-content container">
+    {{if .Params.hidetitle}}
+    {{ else }}
+    <h1>{{ .Title }} </h1>
+    {{ end }}
+    <div class="notification is-primary">
+        <i class="fab fa-creative-commons mr-1"></i>
+        These wallpapers are published under the CC BY-SA 4.0 license. <a href="/pages/license#wallpapers">Learn
+            more</a>
+    </div>
+    {{ .Content }}
+    <div class="grid">
+        {{ $paginator := .Paginate (sort .Pages "Params.id" "desc" ) }}
+        {{ range $paginator.Pages }}
+        <div class="grid-item">
+            <div onClick="window.location.href = '{{ .RelPermalink }}';" class="grid-image-container is-clickable">
+                <img alt="content" class="grid-image" draggable="false"
+                    src="https://files.hexandcube.tk/wallpapers/thumbnails/Wallpaper-{{ .Params.id }}{{ with .Params.variant }}-{{ . }}{{ end }}.png">
+            </div>
+            <div class="level is-mobile">
+                <div class="level-left is-block">
+                    <span class="is-size-4 has-text-weight-bold">{{ .Title }}</span>
+                    <br>
+                    <span class="is-family-monospace">{{ .Params.resolution }}</span>
+                </div>
+                <div class="level-right">
+                    <a class="button-text" href="{{ .RelPermalink }}" title="Preview"><i
+                            class="fas has-text-primary fa-external-link-square-alt"></i></a>
+                    <a class="button-text" type="application/octet-stream"
+                        href="https://files.hexandcube.tk/wallpapers/Wallpaper-{{ .Params.id }}{{ with .Params.variant }}-{{ . }}{{ end }}.png"
+                        title="Download" download><i class="fas has-text-primary fa-download"></i></a>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    {{ partial "pagination.html" . }}
+
+</div>
+{{ end }}

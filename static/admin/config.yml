@@ -12,6 +12,7 @@ backend:
     deleteMedia: '"{{path}}" deleted by {{author-login}}'
     openAuthoring: '{{message}}'
 
+local_backend: true
 show_preview_links: true
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
@@ -39,3 +40,15 @@ collections:
       - {label: "Thumbnail credits", name: "thumbnailCredits", widget: "string", required: false}
       - {label: "Summary", name: "summary", widget: "text", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "wallpaper"
+    label: "Wallpaper"
+    folder: "content/wallpapers"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ['id']
+    fields:
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "ID", name: "id", widget: "string"}
+      - {label: "Resolution", name: "resolution", widget: "string", default: "5120x2880"}
+      - {label: "Variant", name: "variant", widget: "string", required: false}
