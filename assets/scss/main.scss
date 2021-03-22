@@ -524,11 +524,6 @@ a.clean:hover {
 
 // Tablet breakpoint (from 769px)
 @media (min-width: $tablet) {
-    body {
-        padding: 3rem;
-    }
-
-
     .column-svg {
         width: 35rem;
     }
@@ -536,10 +531,6 @@ a.clean:hover {
 
 // Desktop breakpoint (from 1024px)
 @media (min-width: $desktop) {
-    body {
-        padding: 5rem;
-    }
-
     .hidenav-spacer {
         margin-top: 9rem;
     }
